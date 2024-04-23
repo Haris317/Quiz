@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="text">
+           Student Detail
+        </div>
+        <form action="#" id="Form">
+           <div class="form-row">
+              <div class="input-data">
+                 <input type="text" required>
+                 <div class="underline"></div>
+                 <label for="">Roll No</label>
+              </div>
+              <div class="input-data">
+                 <input type="text" required>
+                 <div class="underline"></div>
+                 <label for="">Name</label>
+              </div>
+           </div>
+           <div class="form-row">
+              <div class="input-data">
+                 <input type="text" required>
+                 <div class="underline"></div>
+                 <label for="">Batch</label>
+              </div>
+              <div class="input-data">
+                 <input type="text" required>
+                 <div class="underline"></div>
+                 <label for="">Section</label>
+              </div>
+           </div>
+           <div class="form-row">
+           <div class="input-data textarea">
+              <div class="form-row submit-btn">
+                 <div class="input-data">
+                    <div class="inner"></div>
+                    <button type="submit"><a href="./Quiz.html">Submit</a></button>
+                 </div>
+              </div>
+        </form>
+        </div>
+</body>
+<script src="app.js">
+    document.getElementById("Form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the form from submitting normally
+  
+    // Get form data
+    let formData = new FormData(event.target);
+    let studentData = {};
+    formData.forEach(function(value, key){
+      studentData[key] = value;
+    });
+  
+    // Store data in session storage
+    sessionStorage.setItem('studentData', JSON.stringify(studentData));
+  
+    alert("Student data submitted successfully!");
+    event.target.reset(); // Reset the form fields
+  });
+</script>
+</html>
